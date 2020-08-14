@@ -1,3 +1,9 @@
+/**
+ * avr uart stdio setup
+ * mostly copied from https://appelsiini.net/2011/simple-usart-with-avr-libc/
+ * with a small sprinkling here and there.
+ */
+
 #include <avr/io.h>
 #include <stdio.h>
 #include <util/setbaud.h>
