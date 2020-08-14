@@ -7,7 +7,8 @@
 
 #include "uart.h"
 
-int main(void) {
+int main(void)
+{
     uart_init();
 
     printf("hello, world.\n");

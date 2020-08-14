@@ -17,7 +17,8 @@
 #endif
 
 
-int uart_putchar(char c, FILE *stream) {
+int uart_putchar(char c, FILE *stream)
+{
     if (c == '\n') {
         uart_putchar('\r', stream);
     }
@@ -25,7 +26,8 @@ int uart_putchar(char c, FILE *stream) {
     UDR0 = c;
 }
 
-int uart_getchar(FILE *stream) {
+int uart_getchar(FILE *stream)
+{
     loop_until_bit_is_set(UCSR0A, RXC0); /* Wait until data exists. */
     return UDR0;
 }
@@ -34,7 +36,8 @@ FILE uart_output = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
 FILE uart_input = FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
 FILE uart_io = FDEV_SETUP_STREAM(uart_putchar, uart_getchar, _FDEV_SETUP_RW);
 
-void uart_init(void) {
+void uart_init(void)
+{
     UBRR0H = UBRRH_VALUE;
     UBRR0L = UBRRL_VALUE;
 
